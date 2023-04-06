@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+Your task is to implement a React component that renders a running-clock that will count down time until it reaches 0 minutes and 0 seconds (00:00).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Requirements
+Functionality
+Given the HTML structure:
 
-## Available Scripts
+<label>
+    <input type="number">
+    Minutes
+</label>
+<label>
+    <input type="number">
+    Seconds
+</label>
 
-In the project directory, you can run:
+<button>START</button>
+<button>PAUSE / RESUME</button>
+<button>RESET</button>
 
-### `npm start`
+<h1 data-testid="running-clock">00:00</h1>
+implement a running-clock that receives its time value from user inputs and allows the user to start, pause/resume the countdown and reset the clock.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In order to satisfy the task's requirements, you need to implement the following:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Time display:
 
-### `npm test`
+time is displayed in <h1 data-testid="running-clock"> and its initial value is 00:00;
+time is displayed in mm:ss format;
+1 minute, 5 seconds should be displayed as: 01:05;
+1 minute, 65 seconds should be displayed as: 02:05.
+Inputs:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+changing input values does not change the value displayed in <h1 data-testid="running-clock">;
+inputs do not need to have max or min attributes;
+the clock doesn't need to handle negative values; this is not a part of the solution and will not be evaluated.
+Behavior:
 
-### `npm run build`
+On a START button click, set the clock value displayed in <h1 data-testid="running-clock"> with the time calculated from the inputs and start counting down;
+Once the clock is running, update the displayed time every second;
+Once the clock is running and the START button is clicked, restart the clock with the same time originally provided in the inputs;
+Once the countdown is done and the clock reaches 00:00, stop counting and keep displaying 00:00;
+On a PAUSE / RESUME button click, pause or resume the clock appropriately:
+PAUSE puts the countdown on hold;
+RESUME resumes the countdown from where it left off;
+Once the RESET button is clicked, both inputs should be reset to 0;
+Once the RESET button is clicked, the time displayed in <h1 data-testid="running-clock"> should be reset to 00:00.
+Implementation hints & notice:
+Do not clear the inputs on a START button click.
+Use the same button element for both pause and resume actions.
+The following elements are used in tests and therefore must not be changed:
+<input> labels;
+<button> texts;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h1>element data-testid attribute value.
+Hints
+Only imports from the react module are allowed.
+Your solution will be evaluated based on its correctness.
+Design/styling is not assessed and will not affect the score. You should focus only on implementing the requirements.
+The Preview tab will display your component. You can use it for testing purposes.
+You can use console.log and console.error for debugging purposes via your browser's developer tools.
